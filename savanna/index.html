@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Savanna 🎉</title>
+  <link rel="icon" href="/savanna/favicon.svg" />
+  <link rel="stylesheet" href="/savanna/style.css" />
+  <style>
+    @keyframes party {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    .confetti {
+      position: fixed; top: -10px; width: 10px; height: 10px;
+      background: #a855f7; border-radius: 2px;
+      animation: party 3s linear infinite; z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div id="party-box"></div>
+  <main class="card">
+    <div class="top">
+      <div class="badge">LIVE</div>
+      <h1>Happy Birthday, Savanna 🎂</h1>
+      <p class="sub">This site is running inside a Docker container.</p>
+    </div>
+    <section class="grid">
+      <div class="tile">
+        <h2>Stack</h2>
+        <ul><li>Ubuntu VM</li><li>Nginx Proxy</li><li>Docker</li></ul>
+      </div>
+      <div class="tile">
+        <h2>Status</h2>
+        <p style="color:#22c55e">✅ Online & Healthy</p>
+      </div>
+    </section>
+    <footer><span id="ts"></span></footer>
+  </main>
+  <script>
+    const box = document.getElementById('party-box');
+    const colors = ['#60a5fa', '#a855f7', '#22c55e', '#facc15', '#ef4444'];
+    for (let i = 0; i < 30; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDelay = Math.random() * 3 + 's';
+      box.appendChild(c);
+    }
+    document.getElementById("ts").textContent = "Loaded: " + new Date().toLocaleString();
+  </script>
+</body>
+</html>
