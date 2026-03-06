@@ -10,3 +10,12 @@ loki_data/
 
 # Logs
 *.log
+
+tls/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
